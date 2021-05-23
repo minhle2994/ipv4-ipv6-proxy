@@ -56,7 +56,7 @@ stacksize 6291456
 flush
 auth strong
 
-users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" $2 " "}' ${WORKDATA})
+users spy126:CL:40WYLObhjyQ58eIA
 
 $(awk -F "/" '{print "auth strong\n" \
 "allow " $1 "\n" \
@@ -84,7 +84,7 @@ upload_proxy() {
 }
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
-        echo "spy126/jF5s5EY74vTc3ldX/$IP4/$port/$(gen64 $IP6)"
+        echo "spy126/xxx/$IP4/$port/$(gen64 $IP6)"
     done
 }
 
@@ -115,7 +115,7 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 FIRST_PORT=10000
-LAST_PORT=11000
+LAST_PORT=20000
 
 gen_data >$WORKDIR/data.txt
 gen_iptables >$WORKDIR/boot_iptables.sh
